@@ -7,9 +7,9 @@ resources:
         LoadBalancerInfo:
           ContainerName: "ram-container"
           ContainerPort: 3001
-        PlatformVersion: "LATEST"
-        NetworkConfiguration: 
-          AwsvpcConfiguration:
-            Subnets: [],
-            SecuriyGroups: [].
-            AssignPublicIp: "DISABLED"
+        # PlatformVersion: "LATEST"
+        # NetworkConfiguration: 
+        #   AwsvpcConfiguration:
+        #     Subnets: [],
+        #     SecuriyGroups: [].
+        #     AssignPublicIp: "DISABLED"
