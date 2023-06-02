@@ -2,13 +2,8 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:ap-southeast-2:368355641188:task-definition/ram-task-fg:4"
+        TaskDefinition: "arn:aws:ecs:region:account_id:task-definition/task_defn:revision"
         LoadBalancerInfo:
-          ContainerName: "ram-container"
+          ContainerName: "container_name"
           ContainerPort: 3001
-        # PlatformVersion: "LATEST"
-        # NetworkConfiguration: 
-        #   AwsvpcConfiguration:
-        #     Subnets: ["subnet-0118731e1e83e6e25"],
-        #     SecuriyGroups: ["sg-04c0b05e1783158e3"].
-        #     AssignPublicIp: "DISABLED"
+# arn:aws:ecs:ap-southeast-2:368355641188:task-definition/ram-task-fg:4
