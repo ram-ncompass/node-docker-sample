@@ -15,7 +15,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                //  app = docker.build("nodejs-ram-image")
+                 app = docker.build("nodejs-ram-image")
                 }
             }
         }
@@ -27,14 +27,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
-                    sh 'aws ecr get-login-password --region ap-southeast-2 | docker login --username AWS --password-stdin 368355641188.dkr.ecr.ap-southeast-2.amazonaws.com'
-                    sh 'docker build -t nodejs-ram .'
-                    sh 'docker tag nodejs-ram:latest 368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:latest'
-                    sh 'docker push 368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:latest'
-                    // docker.withRegistry('368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram', 'aws-credentials') {
-                    // app.push("${env.BUILD_NUMBER}")
-                    // app.push("latests")
-                    // }
+                    docker.withRegistry('368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram', 'aws-credentials') {
+                    app.push("${env.BUILD_NUMBER}")
+                    app.push("latests")
+                    }
                 }
             }   
         }
