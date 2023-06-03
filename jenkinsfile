@@ -27,12 +27,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
-                    docker.withRegistry('368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram', 'ecr:ap-southeast-2:aws-credentials') {
+                    docker.withRegistry('368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram', 'aws-credentials') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latests")
                     }
                 }
-            }
+            }   
         }
     }
 }
