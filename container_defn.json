@@ -1,7 +1,7 @@
 [
     {
       "name": "ram-container",
-      "image": "368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:tag_value",
+      "image": "368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:6",
       "portMappings": [
         {
           "containerPort": 3001,
