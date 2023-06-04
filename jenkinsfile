@@ -46,12 +46,12 @@ pipeline {
         //         }
         //     }
         // }
-        // stage('Creating new task definition') {
-        //     steps {
-        //         script {
-        //             sh "aws ecs register-task-definition --family ${TASK_DEFN_FAMILY} --revision ${env.BUILD_NUMBER} --container-definitions file:container_defn.json"
-        //         }
-        //     }
-        // }
+        stage('Creating new task definition') {
+            steps {
+                script {
+                    sh "aws ecs register-task-definition --family ${TASK_DEFN_FAMILY} --revision ${env.BUILD_NUMBER} --container-definitions file://container_defn.json"
+                }
+            }
+        }
     }
 }
