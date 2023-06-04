@@ -1,16 +1,18 @@
-[
-    {
-      "name": "ram-container",
-      "image": "368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:6",
-      "portMappings": [
+{
+    "family": "ram-task-fg",
+    "containerDefinitions": [
         {
-          "containerPort": 3001,
-          "hostPort": 3001,
-          "protocol": "tcp"
+            "image": "368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:12",
+            "name": "ram-container",
+            "cpu": 256,
+            "memory": 512,
+            "essential": true,
+            "portMappings": [
+                {
+                    "containerPort": 3001,
+                    "hostPort": 3001
+                }
+            ]
         }
-      ],
-      "cpu": 256,
-      "memory": 512
-    }
-  ]
-  
+    ]
+}
