@@ -56,7 +56,7 @@ pipeline {
         stage('Creating new service') {
             steps {
                 script {
-                    sh "aws ecs create-service --service-name ram-fg-service --desired-count 1 --task-definition ${TASK_DEFN_FAMILY} --load-balancers targetGroupArn=arn:aws:elasticloadbalancing:ap-southeast-2:368355641188:targetgroup/ram-tg1/79268951e3ae7439,containerName=ram-container,containerPort=3001 --role arn:aws:iam::368355641188:user/ramkumar@ncompass.inc --cluster ram-cluster"
+                    sh "aws ecs create-service --service-name ram-fg-service --desired-count 1 --task-definition ram-task-fg --load-balancers targetGroupArn=arn:aws:elasticloadbalancing:ap-southeast-2:368355641188:targetgroup/ram-tg1/79268951e3ae7439,containerName=ram-container,containerPort=3001 --role arn:aws:iam::368355641188:role/ECRRegistryFullAcessEC2 --cluster ECS_ram_fg_cluster --region ap-southeast-2"
                 }
             }
         }
