@@ -37,15 +37,13 @@ pipeline {
                 }
             }
         }
-        // stage('changing tag value in container_defn.json') {
-        //     steps {
-        //         script {
-        //             def buildNumber = env.BUILD_NUMBER
-        //             def containerDefinitionFile = "./container_defn.json"
-        //             sh "sed -i 's/:tag_value/:$buildNumber/g' $containerDefinitionFile"
-        //         }
-        //     }
-        // }
+        stage('changing tag value in container_defn.json') {
+            steps {
+                script {
+                    sed -i "s/tag_value/"${env.BUILD_NUMBER}"/g" ./container_defn.json
+                }
+            }
+        }
         stage('Creating new task definition') {
             steps {
                 script {
