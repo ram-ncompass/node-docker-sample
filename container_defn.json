@@ -1,11 +1,11 @@
 {
     "family": "ram-task-fg", 
     "networkMode": "awsvpc", 
+    "executionRoleArn": "arn:aws:iam::368355641188:role/ecsTaskExecutionRole",
     "containerDefinitions": [
         {
             "name": "ram-container", 
             "image": "368355641188.dkr.ecr.ap-southeast-2.amazonaws.com/nodejs-ram:tag_value", 
-            "executionRoleArn": "arn:aws:iam::368355641188:role/ecsTaskExecutionRole",
             "portMappings": [
                 {
                     "containerPort": 3001, 
