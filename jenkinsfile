@@ -57,7 +57,7 @@ pipeline {
         stage('Creating new service') {
             steps {
                 script {
-                    aws ecs create-service --cluster ram-cluster --service-name ram-service-1 --task-definition ${TASK_DEFN_FAMILY}:${BUILD_NUMBER}} --desired-count 2 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-0118731e1e83e6e25],securityGroups=[sg-07f44ee2255d597e3]}"
+                    aws ecs create-service --cluster ram-cluster --service-name ram-service-1 --task-definition ${TASK_DEFN_FAMILY}:${BUILD_NUMBER} --desired-count 2 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-0118731e1e83e6e25],securityGroups=[sg-07f44ee2255d597e3]}"
                 }
             }
         }
