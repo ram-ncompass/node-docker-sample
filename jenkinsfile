@@ -50,13 +50,14 @@ pipeline {
             steps {
                 script {
                     sh "aws ecs register-task-definition --family ${TASK_DEFN_FAMILY} --cli-input-json file://./container_defn.json --region ${AWS_DEFAULT_REGION}"
+                    sh "aws ecs list-task-definitions"
                 }
             }
         }
         stage('Creating new service') {
             steps {
                 script {
-                    sh "aws ecs create-service --service-name ram-fg-service --desired-count 1 --task-definition ram-task-fg --load-balancers targetGroupArn=arn:aws:elasticloadbalancing:ap-southeast-2:368355641188:targetgroup/ram-tg1/79268951e3ae7439,containerName=ram-container,containerPort=3001 --role arn:aws:iam::368355641188:role/ECRRegistryFullAcessEC2 --cluster ECS_ram_fg_cluster --region ap-southeast-2"
+                    sh "aws ecs create-service --cluster ram-cluster --service-name ram-service-1 --task-definition ${TASK_DEFN_FAMILY}:${BUILD_NUMBER}}] --desired-count 2 --launch-type "FARGATE" --network-configuration "awsvpcConfiguration={subnets=[subnet-0118731e1e83e6e25],securityGroups=[sg-07f44ee2255d597e3]}""
                 }
             }
         }
